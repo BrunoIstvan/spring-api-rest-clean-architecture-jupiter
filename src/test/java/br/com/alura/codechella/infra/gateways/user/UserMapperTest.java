@@ -32,8 +32,8 @@ class UserMapperTest {
         var result = mapper.toModel(entity);
         assertNotNull(result);
         assertEquals(result.getCpf(), VALID_CPF);
-        assertEquals(result.getNome(), VALID_NAME);
-        assertEquals(result.getNascimento(), VALID_BIRTHDAY);
+        assertEquals(result.getFullName(), VALID_NAME);
+        assertEquals(result.getBirthday(), VALID_BIRTHDAY);
         assertEquals(result.getEmail(), VALID_EMAIL);
         assertEquals(result.getId(), 1L);
 

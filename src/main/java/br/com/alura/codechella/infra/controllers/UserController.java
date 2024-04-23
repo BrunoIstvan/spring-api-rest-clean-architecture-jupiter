@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/users")
 public class UserController {
 
     private final CreateUser createUser;
@@ -36,7 +36,7 @@ public class UserController {
         var factory = new UserFactory();
         var entity = factory.withCpfNameBirthdayEmail(user.cpf(), user.name(), user.birthday(), user.email());
         var newEntity = createUser.save(entity);
-        var uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(newEntity.getId()).toUri();
+        var uri = uriBuilder.path("/users/{id}").buildAndExpand(newEntity.getId()).toUri();
         return ResponseEntity.created(uri).body(UserDTO.toDTO(newEntity));
     }
 

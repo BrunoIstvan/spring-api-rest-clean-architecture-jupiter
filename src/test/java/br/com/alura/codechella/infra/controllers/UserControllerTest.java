@@ -59,7 +59,7 @@ class UserControllerTest {
         doReturn(expectedEntity).when(createUser).save(any());
 
         var perform = this.mockMvc.perform(
-                post("/usuarios")
+                post("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsBytes(dto))
         );
@@ -72,7 +72,7 @@ class UserControllerTest {
                 .andExpect(jsonPath("$.name").value(VALID_NAME))
                 .andExpect(jsonPath("$.birthday").value(VALID_BIRTHDAY.toString()))
                 .andExpect(jsonPath("$.email").value(VALID_EMAIL));
-        assertTrue(Objects.requireNonNull(response.getHeader("location")).contains("/usuarios/100"));
+        assertTrue(Objects.requireNonNull(response.getHeader("location")).contains("/users/100"));
     }
 
     @Test
@@ -85,7 +85,7 @@ class UserControllerTest {
         doReturn(expectedEntity).when(updateUser).update(any());
 
         var perform = this.mockMvc.perform(
-                patch("/usuarios/100")
+                patch("/users/100")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsBytes(dto))
         );
@@ -112,7 +112,7 @@ class UserControllerTest {
         doReturn(expectedEntities).when(listAllUsers).list();
 
         var perform = this.mockMvc.perform(
-                get("/usuarios")
+                get("/users")
                         .contentType(MediaType.APPLICATION_JSON));
 
         perform
@@ -134,7 +134,7 @@ class UserControllerTest {
         doReturn(expectedEntity).when(getUser).getById(1L);
 
         var perform = this.mockMvc.perform(
-                get("/usuarios/1")
+                get("/users/1")
                         .contentType(MediaType.APPLICATION_JSON));
 
         perform
@@ -153,7 +153,7 @@ class UserControllerTest {
         doReturn(null).when(getUser).getById(1L);
 
         var perform = this.mockMvc.perform(
-                get("/usuarios/1000")
+                get("/users/1000")
                         .contentType(MediaType.APPLICATION_JSON));
 
         perform
@@ -166,7 +166,7 @@ class UserControllerTest {
         doNothing().when(deleteUser).delete(1L);
 
         var perform = this.mockMvc.perform(
-                delete("/usuarios/1")
+                delete("/users/1")
                         .contentType(MediaType.APPLICATION_JSON));
 
         perform

@@ -1,10 +1,6 @@
 package br.com.alura.codechella.infra.persistence.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -15,17 +11,19 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cpf;
-    private String nome;
-    private LocalDate nascimento;
+    @Column(name = "nome")
+    private String fullName;
+    @Column(name = "nascimento")
+    private LocalDate birthday;
     private String email;
 
     public UserModel() {}
 
-    public UserModel(Long id, String cpf, String nome, LocalDate nascimento, String email) {
+    public UserModel(Long id, String cpf, String fullName, LocalDate birthday, String email) {
         this.setId(id);
         this.setCpf(cpf);
-        this.setNome(nome);
-        this.setNascimento(nascimento);
+        this.setFullName(fullName);
+        this.setBirthday(birthday);
         this.setEmail(email);
     }
 
@@ -45,20 +43,20 @@ public class UserModel {
         this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public LocalDate getNascimento() {
-        return nascimento;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setNascimento(LocalDate nascimento) {
-        this.nascimento = nascimento;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getEmail() {

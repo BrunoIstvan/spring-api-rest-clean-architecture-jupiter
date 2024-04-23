@@ -7,7 +7,7 @@ public class UserMapper {
 
     public UserEntity toEntity(UserModel model) {
         return new UserEntity(model.getId(), model.getCpf(),
-                model.getNome(), model.getNascimento(), model.getEmail(),
+                model.getFullName(), model.getBirthday(), model.getEmail(),
                 null);
     }
 
