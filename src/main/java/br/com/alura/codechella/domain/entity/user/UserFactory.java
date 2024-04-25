@@ -6,21 +6,21 @@ import java.time.LocalDate;
 
 public class UserFactory {
 
-    private UserEntity userEntity;
+    private User user;
 
-    public UserEntity withCpfNameBirthdayEmail(String cpf, String name, LocalDate birthday, String email) {
-        this.userEntity = new UserEntity(cpf, name, birthday, email, null);
-        return this.userEntity;
+    public User withCpfNameBirthdayEmail(String cpf, String name, LocalDate birthday, String email) {
+        this.user = new User(cpf, name, birthday, email, null);
+        return this.user;
     }
 
-    public UserEntity withId(Long id) {
-        this.userEntity.setId(id);
-        return this.userEntity;
+    public User withId(Long id) {
+        this.user.setId(id);
+        return this.user;
     }
 
-    public UserEntity withAddress(String cep, Integer number, String complement) {
-        this.userEntity.setAddress(new Address(cep, number, complement));
-        return this.userEntity;
+    public User withAddress(String cep, Integer number, String complement) {
+        this.user.setAddress(new Address(cep, number, complement));
+        return this.user;
     }
 
 }

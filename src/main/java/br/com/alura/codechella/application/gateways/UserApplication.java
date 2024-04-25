@@ -1,19 +1,19 @@
 package br.com.alura.codechella.application.gateways;
 
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 
 import java.util.List;
 
 public interface UserApplication {
 
-    UserEntity save(UserEntity userEntity);
+    User save(User user);
 
-    UserEntity update(UserEntity userEntity);
+    User update(User user);
 
     void delete(Long id);
 
-    UserEntity getById(Long id);
+    User getById(Long id);
 
-    List<UserEntity> listAll();
+    List<User> listAll();
 
 }

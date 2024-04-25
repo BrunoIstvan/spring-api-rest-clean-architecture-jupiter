@@ -4,7 +4,7 @@ import br.com.alura.codechella.domain.Address;
 
 import java.time.LocalDate;
 
-public class UserEntity {
+public class User {
 
     private Long id;
     private String cpf;
@@ -40,7 +40,7 @@ public class UserEntity {
         }
     }
 
-    public UserEntity(String cpf, String fullName, LocalDate birthday, String email, Address address) {
+    public User(String cpf, String fullName, LocalDate birthday, String email, Address address) {
         validateCpf(cpf);
         validateName(fullName);
         validateEmail(email);
@@ -53,7 +53,7 @@ public class UserEntity {
 
     }
 
-    public UserEntity(Long id, String cpf, String fullName, LocalDate birthday, String email, Address address) {
+    public User(Long id, String cpf, String fullName, LocalDate birthday, String email, Address address) {
         validateCpf(cpf);
         validateName(fullName);
         validateBirthday(birthday);

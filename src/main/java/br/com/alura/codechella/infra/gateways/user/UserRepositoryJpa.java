@@ -1,7 +1,7 @@
 package br.com.alura.codechella.infra.gateways.user;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 import br.com.alura.codechella.infra.persistence.user.UserRepository;
 
 import java.util.List;
@@ -19,14 +19,14 @@ public class UserRepositoryJpa implements UserApplication {
     }
 
     @Override
-    public UserEntity save(UserEntity entity) {
+    public User save(User entity) {
         var model = mapper.toModel(entity);
         repository.save(model);
         return mapper.toEntity(model);
     }
 
     @Override
-    public UserEntity update(UserEntity entity) {
+    public User update(User entity) {
         var model = mapper.toModel(entity);
         repository.save(model);
         return mapper.toEntity(model);
@@ -38,13 +38,13 @@ public class UserRepositoryJpa implements UserApplication {
     }
 
     @Override
-    public UserEntity getById(Long id) {
+    public User getById(Long id) {
         var model = repository.findById(id);
         return model.map(mapper::toEntity).orElse(null);
     }
 
     @Override
-    public List<UserEntity> listAll() {
+    public List<User> listAll() {
         return repository.findAll().stream().map(mapper::toEntity).collect(Collectors.toList());
     }
 }

@@ -1,7 +1,7 @@
-package br.com.alura.codechella.application.usecases;
+package br.com.alura.codechella.application.usecases.user;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 
 public class UpdateUser {
 
@@ -11,8 +11,8 @@ public class UpdateUser {
         this.application = application;
     }
 
-    public UserEntity update(UserEntity userEntity) {
-        return application.update(userEntity);
+    public User update(User user) {
+        return application.update(user);
     }
 
 }

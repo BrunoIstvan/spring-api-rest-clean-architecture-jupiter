@@ -1,6 +1,6 @@
 package br.com.alura.codechella.infra.gateways.user;
 
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 import br.com.alura.codechella.infra.persistence.user.UserModel;
 import br.com.alura.codechella.infra.persistence.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static br.com.alura.codechella.domain.entity.user.UserEntityTest.*;
+import static br.com.alura.codechella.domain.entity.user.UserTest.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -36,7 +36,7 @@ class UserRepositoryJpaTest {
         var model = new UserModel(null, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL);
         var expectedModel = new UserModel(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL);
         doReturn(expectedModel).when(repository).save(model);
-        var entity = new UserEntity(null, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, null);
+        var entity = new User(null, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, null);
 
         var result = userRepositoryJpa.save(entity);
         assertNotNull(result);
@@ -50,7 +50,7 @@ class UserRepositoryJpaTest {
         var model = new UserModel(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL);
         var expectedModel = new UserModel(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL);
         doReturn(expectedModel).when(repository).save(model);
-        var entity = new UserEntity(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, null);
+        var entity = new User(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, null);
 
         var result = userRepositoryJpa.update(entity);
         assertNotNull(result);

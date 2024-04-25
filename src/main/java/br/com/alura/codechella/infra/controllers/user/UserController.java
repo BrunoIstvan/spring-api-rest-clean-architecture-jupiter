@@ -1,6 +1,6 @@
-package br.com.alura.codechella.infra.controllers;
+package br.com.alura.codechella.infra.controllers.user;
 
-import br.com.alura.codechella.application.usecases.*;
+import br.com.alura.codechella.application.usecases.user.*;
 import br.com.alura.codechella.domain.entity.user.UserFactory;
 import br.com.alura.codechella.infra.controllers.dtos.UserDTO;
 import jakarta.validation.Valid;

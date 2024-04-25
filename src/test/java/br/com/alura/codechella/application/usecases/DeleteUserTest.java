@@ -1,6 +1,7 @@
 package br.com.alura.codechella.application.usecases;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
+import br.com.alura.codechella.application.usecases.user.DeleteUser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

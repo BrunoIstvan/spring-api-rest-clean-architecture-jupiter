@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserEntityTest {
+public class UserTest {
 
 
     public static final String VALID_CPF = "123.456.789-01";
@@ -29,16 +29,16 @@ public class UserEntityTest {
     void whenInvalidCPF_shouldThrowsException() {
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(null, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(null, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(INVALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(INVALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, null, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, null, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, INVALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, INVALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
 
     }
 
@@ -46,16 +46,16 @@ public class UserEntityTest {
     void whenInvalidEmail_shouldThrowsException() {
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, INVALID_EMAIL, VALID_ADDRESS));
+                () -> new User(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, INVALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, null, VALID_ADDRESS));
+                () -> new User(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, null, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, INVALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, INVALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, null, VALID_ADDRESS));
+                () -> new User(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, null, VALID_ADDRESS));
 
     }
 
@@ -63,10 +63,10 @@ public class UserEntityTest {
     void whenInvalidFullName_shouldThrowsException() {
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(VALID_CPF, null, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(VALID_CPF, null, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, VALID_CPF, null, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, VALID_CPF, null, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS));
 
     }
 
@@ -74,29 +74,29 @@ public class UserEntityTest {
     void whenInvalidBirthday_shouldThrowsException() {
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(VALID_CPF, VALID_NAME, INVALID_BIRTHDAY_1, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(VALID_CPF, VALID_NAME, INVALID_BIRTHDAY_1, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(VALID_CPF, VALID_NAME, INVALID_BIRTHDAY_TODAY, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(VALID_CPF, VALID_NAME, INVALID_BIRTHDAY_TODAY, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(VALID_CPF, VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(VALID_CPF, VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, VALID_CPF, VALID_NAME, INVALID_BIRTHDAY_1, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, VALID_CPF, VALID_NAME, INVALID_BIRTHDAY_1, VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, VALID_CPF, VALID_NAME, LocalDate.now(), VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, VALID_CPF, VALID_NAME, LocalDate.now(), VALID_EMAIL, VALID_ADDRESS));
 
         assertThrows(IllegalArgumentException.class,
-                () -> new UserEntity(1L, VALID_CPF, VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS));
+                () -> new User(1L, VALID_CPF, VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS));
 
     }
 
     @Test
     void whenValidUserData_shouldReturnAnFilledUserObject() {
 
-        var user1 = new UserEntity(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
+        var user1 = new User(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
         assertNotNull(user1);
         assertEquals(user1.getId(), 1L);
         assertEquals(user1.getCpf(), VALID_CPF);
@@ -105,7 +105,7 @@ public class UserEntityTest {
         assertEquals(user1.getEmail(), VALID_EMAIL);
         assertEquals(user1.getAddress(), VALID_ADDRESS);
 
-        var user2 = new UserEntity(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
+        var user2 = new User(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
         assertNotNull(user2);
         assertEquals(user2.getCpf(), VALID_CPF);
         assertEquals(user2.getFullName(), VALID_NAME);

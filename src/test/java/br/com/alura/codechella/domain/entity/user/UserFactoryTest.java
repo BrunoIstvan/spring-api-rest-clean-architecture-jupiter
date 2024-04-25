@@ -2,11 +2,11 @@ package br.com.alura.codechella.domain.entity.user;
 
 import org.junit.jupiter.api.Test;
 
-import static br.com.alura.codechella.domain.entity.user.UserEntityTest.*;
+import static br.com.alura.codechella.domain.entity.user.UserTest.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class UserEntityFactoryTest {
+class UserFactoryTest {
 
 
     @Test

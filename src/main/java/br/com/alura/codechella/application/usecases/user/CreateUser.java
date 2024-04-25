@@ -1,7 +1,7 @@
-package br.com.alura.codechella.application.usecases;
+package br.com.alura.codechella.application.usecases.user;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 
 public class CreateUser {
 
@@ -11,8 +11,8 @@ public class CreateUser {
         this.application = application;
     }
 
-    public UserEntity save(UserEntity userEntity) {
-        return application.save(userEntity);
+    public User save(User user) {
+        return application.save(user);
     }
 
 }

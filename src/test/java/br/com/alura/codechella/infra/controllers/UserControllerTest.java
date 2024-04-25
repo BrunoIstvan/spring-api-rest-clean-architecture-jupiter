@@ -1,6 +1,6 @@
 package br.com.alura.codechella.infra.controllers;
 
-import br.com.alura.codechella.application.usecases.*;
+import br.com.alura.codechella.application.usecases.user.*;
 import br.com.alura.codechella.infra.controllers.dtos.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import static br.com.alura.codechella.domain.entity.user.UserEntityTest.*;
+import static br.com.alura.codechella.domain.entity.user.UserTest.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;

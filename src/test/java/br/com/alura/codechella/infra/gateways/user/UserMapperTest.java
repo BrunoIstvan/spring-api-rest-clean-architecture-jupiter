@@ -1,10 +1,10 @@
 package br.com.alura.codechella.infra.gateways.user;
 
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 import br.com.alura.codechella.infra.persistence.user.UserModel;
 import org.junit.jupiter.api.Test;
 
-import static br.com.alura.codechella.domain.entity.user.UserEntityTest.*;
+import static br.com.alura.codechella.domain.entity.user.UserTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
@@ -28,7 +28,7 @@ class UserMapperTest {
     void whenPassAllEntityData_shouldReturnUserModel() {
 
         var mapper = new UserMapper();
-        var entity = new UserEntity(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
+        var entity = new User(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
         var result = mapper.toModel(entity);
         assertNotNull(result);
         assertEquals(result.getCpf(), VALID_CPF);

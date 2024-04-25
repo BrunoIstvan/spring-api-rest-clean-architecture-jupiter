@@ -1,4 +1,4 @@
-package br.com.alura.codechella.application.usecases;
+package br.com.alura.codechella.application.usecases.user;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
 

@@ -1,9 +1,9 @@
 package br.com.alura.codechella.infra.controllers.dtos;
 
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 import org.junit.jupiter.api.Test;
 
-import static br.com.alura.codechella.domain.entity.user.UserEntityTest.*;
+import static br.com.alura.codechella.domain.entity.user.UserTest.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -26,7 +26,7 @@ class UserDTOTest {
     @Test
     void whenPassAllEntityData_shouldReturnUserDTO() {
 
-        var entity = new UserEntity(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
+        var entity = new User(1L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
         var result = UserDTO.toDTO(entity);
         assertNotNull(result);
         assertEquals(result.cpf(), VALID_CPF);

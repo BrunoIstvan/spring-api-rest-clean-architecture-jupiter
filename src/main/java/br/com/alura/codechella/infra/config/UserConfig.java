@@ -1,7 +1,7 @@
 package br.com.alura.codechella.infra.config;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
-import br.com.alura.codechella.application.usecases.*;
+import br.com.alura.codechella.application.usecases.user.*;
 import br.com.alura.codechella.infra.gateways.user.UserMapper;
 import br.com.alura.codechella.infra.gateways.user.UserRepositoryJpa;
 import br.com.alura.codechella.infra.persistence.user.UserRepository;

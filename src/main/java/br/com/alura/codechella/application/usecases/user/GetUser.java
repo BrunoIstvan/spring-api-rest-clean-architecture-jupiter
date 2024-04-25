@@ -1,7 +1,7 @@
-package br.com.alura.codechella.application.usecases;
+package br.com.alura.codechella.application.usecases.user;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.domain.entity.user.User;
 
 public class GetUser {
 
@@ -11,6 +11,6 @@ public class GetUser {
         this.application = application;
     }
 
-    public UserEntity getById(Long id) { return application.getById(id); }
+    public User getById(Long id) { return application.getById(id); }
 
 }

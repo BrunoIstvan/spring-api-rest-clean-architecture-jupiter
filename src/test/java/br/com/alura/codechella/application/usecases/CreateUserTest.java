@@ -1,13 +1,14 @@
 package br.com.alura.codechella.application.usecases;
 
 import br.com.alura.codechella.application.gateways.UserApplication;
-import br.com.alura.codechella.domain.entity.user.UserEntity;
+import br.com.alura.codechella.application.usecases.user.CreateUser;
+import br.com.alura.codechella.domain.entity.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import static br.com.alura.codechella.domain.entity.user.UserEntityTest.*;
+import static br.com.alura.codechella.domain.entity.user.UserTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
 
@@ -24,8 +25,8 @@ class CreateUserTest {
     @Test
     void whenExecuteSave_shouldSaveDataAndReturnEntity() {
 
-        var entityBefore = new UserEntity(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
-        var entityAfter = new UserEntity(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
+        var entityBefore = new User(VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
+        var entityAfter = new User(100L, VALID_CPF, VALID_NAME, VALID_BIRTHDAY, VALID_EMAIL, VALID_ADDRESS);
         doReturn(entityAfter).when(application).save(entityBefore);
         var createUser = new CreateUser(application);
         var result = createUser.save(entityBefore);
